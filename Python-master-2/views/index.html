@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Book your shape</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/animate.css">
+
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/icomoon.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+      <!--<style>-->
+      <!--/* Make the image fully responsive */-->
+      <!--.carousel-inner img {-->
+          <!--width: 100%;-->
+          <!--height: 100%;-->
+      <!--}-->
+      <!--</style>-->
+
+</head>
+
+<body data-spy="scroll" data-target="#ftco-navbar" data-offset="200">
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a href="#section-home" class="nav-link">Home</a></li>
+                <li class="nav-item active"><a href="#section-features" class="nav-link">Sign In </a></li>
+                <li class="nav-item active"><a href="/login" class="nav-link">Log In</a></li>
+             </ul>
+        </div>
+    </div>
+</nav>
+<!-- END nav -->
+
+<section id="section-home">
+<!--<section class="ftco-cover ftco-slant" style="background-image: url(/static/images/track.jpg);" id="section-home">-->
+    <!--<div class="container">-->
+        <!--<div class="row align-items-center justify-content-center text-center ftco-vh-100">-->
+            <!--<div class="col-md-10">-->
+                <!--<h1 class="ftco-heading ftco-animate">Book your gym in one click.</h1>-->
+                <!--&lt;!&ndash;<h2 class="h5 ftco-subheading mb-5 ftco-animate">At any time!</h2>&ndash;&gt;-->
+                <!--<p><a target="_blank" class="btn btn-primary ftco-animate">Get Started</a></p>-->
+
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+          <!-- Indicators -->
+          <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+          </ul>
+
+          <!-- The slideshow -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="/static/images/track.jpg" alt="Book it babe" width="1200" height="800">
+            </div>
+            <div class="carousel-item">
+              <img src="/static/images/s.jpg" alt="Book it babe" width="1200" height="800">
+            </div>
+            <div class="carousel-item">
+              <img src="/static/images/track.jpg" alt="Book it babe" width="1200" height="800">
+            </div>
+          </div>
+
+          <!-- Left and right controls -->
+          <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </a>
+        </div>
+
+    <!--</div>-->
+
+</section>
+
+
+<section class="ftco-section bg-light  ftco-slant ftco-slant-white" id="section-features">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12 text-center mb-5 ftco-animate">
+                <h2 class="text-uppercase ftco-uppercase">Book sport facilities in just one click!</h2>
+            </div>
+
+            <div class="container">
+	<div class="row">
+      <div >
+        <div class="row justify-content-center">
+
+          <form class="form-horizontal" action="/registerUser" method="post">
+
+          <fieldset style="margin-left: 350px">
+              <legend><h1>Registration</h1></legend>
+
+            <!-- Name input-->
+            <div class="form-group">
+              <label class="col-md-10 control-label" for="name">Login</label>
+              <div class="col-md-20">
+                <input id="login" name="login" type="text" placeholder="Your name" class="form-control">
+              </div>
+            </div>
+              <div class="form-group">
+              <label class="col-md-10 control-label" for="message">Password</label>
+              <div class="col-md-20">
+                   <input id="password" name="password" type="password" placeholder="Your password" class="form-control">
+               </div>
+            </div>
+            <!-- Email input-->
+            <div class="form-group">
+              <label class="col-md-10 control-label" for="email">Your E-mail</label>
+              <div class="col-md-20">
+                <input id="email" name="email" type="text" placeholder="Your email" class="form-control">
+              </div>
+            </div>
+
+            <!-- Message body -->
+
+            <!-- Form actions -->
+            <div class="form-group" style="margin-left: 350px">
+              <div class="col-md-12 text-center" align="center">
+                  <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+              </div>
+            </div>
+          </fieldset>
+          </form>
+        </div>
+      </div>
+	</div>
+</div>
+        </div>
+    </div>
+</section>
+<!-- END section -->
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#4586ff"/>
+    </svg>
+</div>
+
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/popper.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.easing.1.3.js"></script>
+<script src="/static/js/jquery.waypoints.min.js"></script>
+<script src="/static/js/owl.carousel.min.js"></script>
+<script src="/static/js/jquery.animateNumber.min.js"></script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="/static/js/google-map.js"></script>
+
+<script src="/static/js/main.js"></script>
+
+
+</body>
+</html>

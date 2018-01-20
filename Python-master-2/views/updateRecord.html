@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Log In </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/animate.css">
+
+
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/icomoon.css">
+
+</head>
+<body>
+<legend class="text-center" style="margin-left:-500px">Add new record</legend>
+<section style="margin-left: 350px">
+              % for record in records:
+    <form class="form-horizontal" action="/{{record['id']}}/update/record" method="post">
+              <div class="form-group">
+              <label class="col-md-3 control-label" for="type">Type</label>
+              <div class="col-md-9">
+              <input id="type" value="{{record['type']}}" name="type" type="text" placeholder="Type of sport"
+                      class="form-control">
+              </div>
+            </div>
+              <div class="form-group">
+              <label class="col-md-3 control-label" for="message">Name</label>
+              <div class="col-md-9">
+                     <input id="name" name="name" value="{{record['name']}}" type="text" placeholder="Name of place" class="form-control">
+                   </div>
+            </div>
+        <div class="form-group">
+              <label class="col-md-3 control-label" for="message">Address</label>
+              <div class="col-md-9">
+                         <input id="address" value="{{record['address']}}" name="address" type="text" placeholder="Address" class="form-control">
+                  </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-12 text-right" style="margin-left:-500px">
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+              </div>
+            </div>
+              % end
+    </form>
+</section>
+
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/popper.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.easing.1.3.js"></script>
+<script src="/static/js/jquery.waypoints.min.js"></script>
+<script src="/static/js/owl.carousel.min.js"></script>
+<script src="/static/js/jquery.animateNumber.min.js"></script>
+
+<script src="/static/js/main.js"></script>
+
+
+</body>
+</html>

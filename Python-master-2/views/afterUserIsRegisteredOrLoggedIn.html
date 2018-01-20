@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Exclusivity - Free Bootstrap 4 Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Free Template by Free-Template.co"/>
+    <meta name="keywords"
+          content="free bootstrap 4, free bootstrap 4 template, free website templates, free html5, free template, free website template, html5, css3, mobile first, responsive"/>
+    <meta name="author" content="Free-Template.co"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/animate.css">
+
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/icomoon.css">
+
+    <!--jQuery -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+</head>
+<body data-spy="scroll" data-target="#ftco-navbar" data-offset="200">
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a href="#calendar" class="nav-link">Calendar</a></li>
+                <li class="nav-item"><a href="#allEvents" class="nav-link">All events</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- END nav -->
+
+<section class="ftco-cover ftco-slant" style="background-image: url(/static/images/track.jpg);">
+    <div class="container">
+        <div class="row align-items-center justify-content-center text-center ftco-vh-100">
+            <div class="col-md-10">
+                <h1 class="ftco-heading ftco-animate">Welcome {{'user'}}</h1>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+
+<section class="ftco-section bg-light  ftco-slant ftco-slant-white" id="calendar">
+    <div class="container">
+
+        <div class="row">
+            <div class="container">
+                <form class="form-horizontal" action="/" method="post">
+                    <fieldset>
+                        <legend class="text-center">Calendar</legend>
+                    </fieldset>
+
+                </form>
+            <div>
+               % include('calendar.html')
+
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- END section -->
+
+<section class="ftco-section bg-light  ftco-slant ftco-slant-white" id="allEvents">
+    <form class = "form-horizontal" action ="/" method="post"></form>
+
+    <div class="container">
+        <div class="row">
+
+
+            <div class="col-md-12">
+            <h1 style="text-align:center">All Events</h1>
+            <div class ="table-responsive">
+
+                <table id="mytable" class="table table-bordred table-striped">
+
+                    <thead>
+
+                    <!--<th><input type="checkbox" id="checkall" /></th>-->
+                    <th></th>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </thead>
+        <tbody>
+
+        % for allEvent in allEvents:
+            <!--<td><input type="checkbox" class="checkthis" /></td>-->
+        <tr>
+            <td></td>
+            <td type="hidden" align="left">{{allEvent["type"]}}</td>
+            <td type="hidden" align="left">{{allEvent["name"]}}</td>
+            <td type="hidden" align="left">{{allEvent["address"]}}</td>
+            <td type="hidden" align="left">{{allEvent["date"]}}</td>
+            <td type="hidden" align="left">{{allEvent["time"]}}</td>
+            <td align="left"><p data-placement="top" data-toggle="tooltip" title="Edit">
+                <button class="btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon-pencil"></span></button></p></td>
+            <td align="left">
+                <p data-placement="top" data-toggle="tooltip" title="Delete">
+                    <button class="btn-danger btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" >
+                        <span class="glyphicon-trash"></span></button></p></td>
+
+        </tr>
+        % end
+        </tbody>
+                </table>
+
+
+    <!--<div class="clearfix"></div>-->
+    <!--<ul class="pagination pull-right">-->
+      <!--<li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>-->
+      <!--<li class="active"><a href="#">1</a></li>-->
+      <!--<li><a href="#">2</a></li>-->
+      <!--<li><a href="#">3</a></li>-->
+      <!--<li><a href="#">4</a></li>-->
+      <!--<li><a href="#">5</a></li>-->
+      <!--<li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>-->
+    <!--</ul>-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
+      </div>
+          <div class="modal-body">
+          <div class="form-group">
+        <input class="form-control " type="text" placeholder="Name">
+        </div>
+        <div class="form-group">
+
+        <input class="form-control " type="text" placeholder="Date">
+        </div>
+        <div class="form-group">
+        <textarea rows="2" class="form-control" placeholder="Address"></textarea>
+
+
+        </div>
+      </div>
+          <div class="modal-footer ">
+        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+      </div>
+        </div>
+    <!-- /.modal-content -->
+  </div>
+      <!-- /.modal-dialog -->
+    </div>
+
+
+
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+      </div>
+          <div class="modal-body">
+
+       <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
+
+      </div>
+        <div class="modal-footer ">
+        <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+      </div>
+        </div>
+    <!-- /.modal-content -->
+  </div>
+      <!-- /.modal-dialog -->
+    </div>
+</section>
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/popper.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.easing.1.3.js"></script>
+<script src="/static/js/jquery.waypoints.min.js"></script>
+<script src="/static/js/owl.carousel.min.js"></script>
+<script src="/static/js/jquery.animateNumber.min.js"></script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="/static/js/google-map.js"></script>
+
+<script src="/static/js/main.js"></script>
+
+
+</body>
+</html>
