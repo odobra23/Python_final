@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
+<meta charset="utf-8">
 <head>
-    <title>Log In </title>
-    <meta charset="utf-8">
+    <title>Select your facility</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
@@ -16,7 +17,6 @@
 
 </head>
 <body>
-<legend class="text-center" style="margin-left:-500px">Select Facility</legend>
 <section style="margin-left: 350px">
     <form class="form-horizontal" action="/sala" method="post">
         <div class="form-group">
@@ -24,18 +24,21 @@
                 <label class="col-md-3 control-label" for="message">Type</label>
                 <div class="col-md-9">
                     <select id="type" name="type">
-                        % for type in typeFromAll:
-                        <option>{{type["type"]}}</option>
-                        % end
+                         <option style="width: 400px !important">Select your sport</option>
+                        <option style="width: 400px !important">Football</option>
+                        <option style="width: 400px !important">Handball</option>
+                        <option style="width: 400px !important">Basketball</option>
+                        <option style="width: 400px !important">Volleyball</option>
                     </select>
 
                 </div>
                 <div class="form-group">
                     <label class="col-md-3 control-label" for="message">Name</label>
                     <div class="col-md-9">
-                        <select id="name" name="name">
+                        <select id="names" name="name">
+                             <option style="width: 400px !important">Select your facility</option>
                             % for eventName in nameFromAll:
-                            <option>{{eventName["name"]}}</option>
+                            <option style="width: 400px !important"> {{eventName["name"]}}</option>
                             % end
                         </select>
                     </div>
@@ -43,7 +46,7 @@
                 <div class="form-group">
                     <label class="col-md-3 control-label" for="message">Date</label>
                     <div class="col-md-9">
-                        <input id="date" name="date" type="date" placeholder="date" class="form-control">
+                        <input id="date" name="date" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">

@@ -220,9 +220,7 @@ h1, h2, h3, h4, h5,
   .btn.btn-primary {
     background: #4586FF;
     border-color: #4586FF;
-    color: #fff;
-    margin-left: -350px;
-    }
+    color: #fff; }
     .btn.btn-primary:hover, .btn.btn-primary:focus, .btn.btn-primary:active {
       border-color: #1265ff;
       background: #1265ff; }
@@ -757,7 +755,19 @@ h1 {
     border-radius: 4px;
 }
 
+/*.glyphicon-pencil:before {*/
+    /*content: "\e270";*/
+/*}*/
 
+
+/*.glyphicon-remove:before {*/
+    /*content: "\e020";*/
+/*}*/
+
+
+/*.glyphicon-plus:before {*/
+    /*content: "\e081";*/
+/*}*/
 
 :before, :after {
     -webkit-box-sizing: border-box;
@@ -773,7 +783,14 @@ input, optgroup, select, textarea {
     width: 400px !important;
 }
 
-#section-home {
-  background-size: cover;
-  background-position: center ;
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
 }

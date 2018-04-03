@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
+ <meta charset="utf-8">
 <head>
-    <title>Exclusivity - Free Bootstrap 4 Template</title>
-    <meta charset="utf-8">
+    <title>Gymmer</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Free Template by Free-Template.co"/>
-    <meta name="keywords"
-          content="free bootstrap 4, free bootstrap 4 template, free website templates, free html5, free template, free website template, html5, css3, mobile first, responsive"/>
-    <meta name="author" content="Free-Template.co"/>
 
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
@@ -38,6 +35,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active"><a href="#calendar" class="nav-link">Calendar</a></li>
                 <li class="nav-item"><a href="#allEvents" class="nav-link">All events</a></li>
+                <li class="nav-item"><a href="/logout" class="nav-link">Log out</a></li>
             </ul>
         </div>
     </div>
@@ -93,21 +91,17 @@
                 <table id="mytable" class="table table-bordred table-striped">
 
                     <thead>
-
-                    <!--<th><input type="checkbox" id="checkall" /></th>-->
                     <th></th>
                     <th>Type</th>
                     <th>Name</th>
                     <th>Address</th>
                     <th>Date</th>
                     <th>Time</th>
-                        <th>Edit</th>
                         <th>Delete</th>
                     </thead>
         <tbody>
 
         % for allEvent in allEvents:
-            <!--<td><input type="checkbox" class="checkthis" /></td>-->
         <tr>
             <td></td>
             <td type="hidden" align="left">{{allEvent["type"]}}</td>
@@ -115,12 +109,10 @@
             <td type="hidden" align="left">{{allEvent["address"]}}</td>
             <td type="hidden" align="left">{{allEvent["date"]}}</td>
             <td type="hidden" align="left">{{allEvent["time"]}}</td>
-            <td align="left"><p data-placement="top" data-toggle="tooltip" title="Edit">
-                <button class="btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon-pencil"></span></button></p></td>
-            <td align="left">
+            <td align="left"><form action="/delete/user/{{allEvent['id']}}" method="post">
                 <p data-placement="top" data-toggle="tooltip" title="Delete">
-                    <button class="btn-danger btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" >
-                        <span class="glyphicon-trash"></span></button></p></td>
+                    <button class="btn-danger btn-lg" data-title="Delete" data-toggle="modal" data-target="#delete" >
+                       Delete</button></form></p></p></td>
 
         </tr>
         % end
@@ -145,56 +137,10 @@
         </div>
     </div>
 
-
-<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-      <div class="modal-dialog">
-    <div class="modal-content">
-          <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-        <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
-      </div>
-          <div class="modal-body">
-          <div class="form-group">
-        <input class="form-control " type="text" placeholder="Name">
-        </div>
-        <div class="form-group">
-
-        <input class="form-control " type="text" placeholder="Date">
-        </div>
-        <div class="form-group">
-        <textarea rows="2" class="form-control" placeholder="Address"></textarea>
-
-
-        </div>
-      </div>
-          <div class="modal-footer ">
-        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
-      </div>
-        </div>
     <!-- /.modal-content -->
   </div>
       <!-- /.modal-dialog -->
     </div>
-
-
-
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-      <div class="modal-dialog">
-    <div class="modal-content">
-          <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
-      </div>
-          <div class="modal-body">
-
-       <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
-
-      </div>
-        <div class="modal-footer ">
-        <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
-      </div>
-        </div>
     <!-- /.modal-content -->
   </div>
       <!-- /.modal-dialog -->

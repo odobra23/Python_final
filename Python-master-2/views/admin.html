@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <title>Book your shape</title>
     <meta charset="utf-8">
@@ -18,13 +18,14 @@
     <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/icomoon.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 </head>
 <body data-spy="scroll" data-target="#ftco-navbar" data-offset="200">
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html">Book your shape</a>
+        <a class="navbar-brand" href="index.html">Gymmer</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
@@ -32,10 +33,10 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <!--<li class="nav-item active"><a href="#calendar" class="nav-link">Calendar</a></li>-->
-                <li class="nav-item active"><a href="#database" class="nav-link">Database</a></li>
+                <li class="nav-item active"><a href="#database" class="nav-link">All gyms</a></li>
                 <li class="nav-item active"><a href="#allUsers" class="nav-link">All users</a></li>
                 <li class="nav-item active"><a href="#allEvents" class="nav-link">All events</a></li>
+                <li class="nav-item active"><a href="/logout" class="nav-link">Log out </a></li>
             </ul>
         </div>
 
@@ -65,6 +66,11 @@
         <div class="row">
 
             <div class="col-md-12">
+                <select class="form-control" name="state" id="maxRows">
+                <option value="5000">Show all rows</option>
+                <option value="5">5 rows displayed</option>
+                <option value="10">10 rows displayed</option>
+            </select>
             <h1 style="text-align:center">All gyms</h1>
             <div class ="table-responsive">
                 <button type="submit"><a href="/addNewRecord" class="nav-link">Add new gym</a></button></li></button>
@@ -72,8 +78,6 @@
                 <table id="mytable" class="table table-bordred table-striped">
 
                     <thead>
-
-                    <!--<th><input type="checkbox" id="checkall" /></th>-->
                     <th></th>
                     <th>ID</th>
                     <th>Type</th>
@@ -86,7 +90,6 @@
 
         % for record in records:
         <tr>
-            <!--<td><input type="checkbox" class="checkthis" /></td>-->
             <td></td>
             <td type="hidden" align="left">{{record["id"]}}</td>
             <td type="hidden" align="left">{{record["type"]}}</td>
@@ -95,17 +98,26 @@
 
             <td align="left">
                 <form method="post" action="/{{record['id']}}/updaterecord">
-                       <button data-title="Edit" data-toggle="modal" data-target="#edit"></button></form></td>
+                       <button class="btn-primary btn-lg" data-title="Edit" data-toggle="modal" data-target="#edit">Edit</button></form></td>
 
             <td align="left"><form action="/deleterecord/{{record['id']}}" method="post">
                 <p data-placement="top" data-toggle="tooltip" title="Delete">
-                    <button class="btn-danger btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" >
-                        <span class="glyphicon-trash "></span></button></form></p></p></td>
+                    <button class="btn-danger btn-lg" data-title="Delete" data-toggle="modal" data-target="#delete" >
+                        <span class="glyphicon-trash "></span>Delete</button></form></p></p></td>
         </tr>
         % end
         </tbody>
                 </table>
-                </div>
+                    <!--<div class="clearfix"></div>-->
+                    <!--<ul class="pagination pull-right">-->
+                      <!--<li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>-->
+                      <!--<li class="active"><a href="#">1</a></li>-->
+                      <!--<li><a href="#">2</a></li>-->
+                      <!--<li><a href="#">3</a></li>-->
+                      <!--<li><a href="#">4</a></li>-->
+                      <!--<li><a href="#">5</a></li>-->
+                      <!--<li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>-->
+                    <!--</ul>-->
             </div>
         </div>
     </div>
@@ -118,15 +130,17 @@
     <div class="container">
         <div class="row">
 
-
             <div class="col-md-12">
+                <select class="form-control" name="state" id="maxRows">
+                <option value="5000">Show all rows</option>
+                </select>
+
             <h1 style="text-align:center">All Users</h1>
             <div class ="table-responsive">
 
                 <table id="mytable" class="table table-bordred table-striped">
 
                     <thead>
-                    <!--<th><input type="checkbox" id="checkall" /></th>-->
                     <th></th>
                     <th>Login</th>
                     <th>Email</th>
@@ -137,22 +151,32 @@
 
         % for user in users:
         <tr>
-            <!--<td><input type="checkbox" class="checkthis" /></td>-->
             <td></td>
             <td type="hidden" align="left">{{user["login"]}}</td>
             <td type="hidden" align="left">{{user["email"]}}</td>
 
             <td align="left"><form method="post" action="/{{user['id']}}/updateuser">
-                       <button data-title="Edit" data-toggle="modal"></button></form></td></td>
+                       <button class="btn-primary btn-lg" data-title="Edit" data-toggle="modal">Edit</button></form></td></td>
 
             <td align="left"><form action="/deleteuser/{{user['id']}}" method="post">
                 <p data-placement="top" data-toggle="tooltip" title="Delete">
-                    <button class="btn-danger btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" >
-                        <span class="glyphicon-trash "></span></button></form></p></p></td>
+                    <button class="btn-danger btn-lg" data-title="Delete" data-toggle="modal" data-target="#delete">
+                        <span class="glyphicon-trash "></span>Delete</button></form></p></p></td>
         </tr>
         % end
         </tbody>
                 </table>
+
+                <!--<div class="w3-bar">-->
+                  <!--<a href="#" class="w3-button">&laquo;</a>-->
+                  <!--<a href="#" class="w3-button">1</a>-->
+                  <!--<a href="#" class="w3-button">2</a>-->
+                  <!--<a href="#" class="w3-button">3</a>-->
+                  <!--<a href="#" class="w3-button">4</a>-->
+                  <!--<a href="#" class="w3-button">5</a>-->
+                  <!--<a href="#" class="w3-button">&raquo;</a>-->
+                <!--</div>-->
+
                 </div>
             </div>
         </div>
@@ -165,7 +189,9 @@
 
     <div class="container">
         <div class="row">
-
+            <select class="form-control" name="state" id="maxRows">
+                <option value="5000">Show all rows</option>
+            </select>
             <div class="col-md-12">
             <h1 style="text-align:center">All Events</h1>
             <div class ="table-responsive">
@@ -173,9 +199,7 @@
                 <table id="mytable" class="table table-bordred table-striped">
 
                     <thead>
-
-                    <!--<th><input type="checkbox" id="checkall" /></th>-->
-                    <th></th>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Date</th>
                     <th>Time</th>
@@ -187,23 +211,32 @@
 
         % for event in events:
         <tr>
-            <!--<td><input type="checkbox" class="checkthis" /></td>-->
-            <td></td>
+            <td type="hidden" align="left">{{event["id"]}}</td>
             <td type="hidden" align="left">{{event["name"]}}</td>
             <td type="hidden" align="left">{{event["date"]}}</td>
             <td type="hidden" align="left">{{event["time"]}}</td>
             <td type="hidden" align="left">{{event["user_id"]}}</td>
             <td align="left"><form method="post" action="/{{event['id']}}/updateevent">
-                       <button data-title="Edit" data-toggle="modal" data-target="#edit" class="btn-primary btn-sm"></button></form></td>
+                       <button data-title="Edit" data-toggle="modal" data-target="#edit" class="btn-primary btn-lg ">Edit</button></form></td>
 
             <td align="left"><form action="/deleteevent/{{event['id']}}" method="post">
                 <p data-placement="top" data-toggle="tooltip" title="Delete">
-                    <button class="btn-danger btn-sm" data-title="Delete" data-toggle="modal" data-target="#delete" >
-                        <span class="glyphicon-trash "></span></button></form></p></p></td>
+                    <button class="btn-danger btn-lg" data-title="Delete" data-toggle="modal" data-target="#delete" >
+                        <span class="glyphicon-trash "></span>Delete</button></form></p></p></td>
         </tr>
         % end
         </tbody>
                 </table>
+                <!--<div class="w3-bar">-->
+                  <!--<a href="#" class="w3-button">&laquo;</a>-->
+                  <!--<a href="#" class="w3-button">1</a>-->
+                  <!--<a href="#" class="w3-button">2</a>-->
+                  <!--<a href="#" class="w3-button">3</a>-->
+                  <!--<a href="#" class="w3-button">4</a>-->
+                  <!--<a href="#" class="w3-button">5</a>-->
+                  <!--<a href="#" class="w3-button">&raquo;</a>-->
+                <!--</div>-->
+
                     </div>
                 </div>
             </div>
@@ -229,7 +262,8 @@
 <script src="/static/js/google-map.js"></script>
 
 <script src="/static/js/main.js"></script>
-
+<!--<script src='https://codepen.io/fbrz/pen/9a3e4ee2ef6dfd479ad33a2c85146fc1.js'></script>-->
+<!--<script src="static/pagi/pagination/js/index.js"></script>-->
 
 </body>
 </html>

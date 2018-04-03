@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <title>Log In </title>
     <meta charset="utf-8">
@@ -18,9 +18,9 @@
 
 </head>
 <body>
-<legend class="text-center" style="margin-left:-500px">Add new record</legend>
+<legend class="text-center" style="margin-left:-500px">Update gym</legend>
 <section style="margin-left: 350px">
-              % for record in records:
+    % for record in records:
     <form class="form-horizontal" action="/{{record['id']}}/update/record" method="post">
               <div class="form-group">
               <label class="col-md-3 control-label" for="type">Type</label>

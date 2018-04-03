@@ -69,72 +69,61 @@ var vanillacalendar = {
         this.month.appendChild(newDay)
     },
 
-    dateClicked: function () {
-        var _this = this
-        this.activeDates = document.querySelectorAll('[data-calendar-status="active"]')
-        for (var i = 0; i < this.activeDates.length; i++) {
-            this.activeDates[i].addEventListener('click', function (event) {
-                    $.ajax({
-                        url: '/showsala',
-                        type: 'get',
-                        success: function () {
-                            window.location.href = "/showsala"
-                        }
-                    });
+        dateClicked: function () {
+            var _this = this
+            this.activeDates = document.querySelectorAll('[data-calendar-status="active"]')
+            for (var i = 0; i < this.activeDates.length; i++) {
+                this.activeDates[i].addEventListener('click', function (event) {
+                    var day = event.currentTarget.firstChild.innerText.trim();
+                    console.log(day)
+                    var d = new Date();
+                    var msc = d.getMonth() + 1;
+                    var year = d.getFullYear()
+                    window.location.href = "/showsala?rok=" + year + "&miesiac=" + msc + "&dzien=" + day;
+                })
+            }},
 
+        createMonth: function () {
+            var currentMonth = this.date.getMonth()
+            while (this.date.getMonth() === currentMonth) {
+                this.createDay(this.date.getDate(), this.date.getDay(), this.date.getFullYear())
+                this.date.setDate(this.date.getDate() + 1)
+            }
+            // while loop trips over and day is at 30/31, bring it back
+            this.date.setDate(1)
+            this.date.setMonth(this.date.getMonth() - 1)
 
-                    var picked = document.querySelectorAll('[data-calendar-label="picked"]')[0]
-                    picked.innerHTML = this.dataset.calendarDate
-                    _this.removeActiveClass()
-                    this.classList.add('cal__date--selected')
-                }
-            )
+            this.label.innerHTML = this.monthsAsString(this.date.getMonth()) + ' ' + this.date.getFullYear()
+            this.dateClicked()
         }
-
-
-    },
-
-    createMonth: function () {
-        var currentMonth = this.date.getMonth()
-        while (this.date.getMonth() === currentMonth) {
-            this.createDay(this.date.getDate(), this.date.getDay(), this.date.getFullYear())
-            this.date.setDate(this.date.getDate() + 1)
-        }
-        // while loop trips over and day is at 30/31, bring it back
-        this.date.setDate(1)
-        this.date.setMonth(this.date.getMonth() - 1)
-
-        this.label.innerHTML = this.monthsAsString(this.date.getMonth()) + ' ' + this.date.getFullYear()
-        this.dateClicked()
-    }
     ,
 
-    monthsAsString: function (monthIndex) {
-        return [
-            'January',
-            'Febuary',
-            'March',
-            'April',
-            'May',
-            'June',
-            'July',
-            'August',
-            'September',
-            'October',
-            'November',
-            'December'
-        ][monthIndex]
-    }
+        monthsAsString: function (monthIndex) {
+            return [
+                'January',
+                'Febuary',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+                'October',
+                'November',
+                'December'
+            ][monthIndex]
+        }
     ,
 
-    clearCalendar: function () {
-        vanillacalendar.month.innerHTML = ''
-    }
+        clearCalendar: function () {
+            vanillacalendar.month.innerHTML = ''
+        }
     ,
 
-    removeActiveClass: function () {
-        for (var i = 0; i < this.activeDates.length; i++) {
-            this.activeDates[i].classList.remove('cal__date--selected')
+        removeActiveClass: function () {
+            for (var i = 0; i < this.activeDates.length; i++) {
+                this.activeDates[i].classList.remove('cal__date--selected')
+            }
         }
     }
-}
